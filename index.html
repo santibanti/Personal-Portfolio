@@ -9,10 +9,10 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a class="nav-logo" href="./index.html">SG</a>
-      <ul class="nav-links" role="list">
+  <header>
+    <nav>
+      <a href="./index.html">SG</a>
+      <ul>
         <li><a href="./index.html" aria-current="page">About</a></li>
         <li><a href="./resume.html">Résumé</a></li>
         <li><a href="./projects.html">Projects</a></li>
@@ -22,24 +22,14 @@
     </nav>
   </header>
 
-  <main id="main-content">
+  <main>
 
-    <!--
-      <section> is appropriate here: the hero is a thematically distinct,
-      named region of the page with its own heading.
-    -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <h1 id="hero-heading">Santiago Guerrero</h1>
-      <p class="hero-subtitle">CS &amp; Math student at USD &mdash; aspiring full-stack software developer</p>
-      <a class="btn" href="./projects.html">View My Work</a>
-    </section>
+    <h1>Santiago Guerrero</h1>
+    <p>CS &amp; Math student at USD: aspiring full-stack software developer</p>
+    <a href="./projects.html">View My Work</a>
 
-    <!--
-      <section> with a heading: thematic block about who I am.
-      Paragraphs sit directly inside — no wrapper needed.
-    -->
-    <section class="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
+    <section>
+      <h2>About Me</h2>
       <p>
         I'm a Computer Science and Mathematics student at the University of San Diego
         with a passion for building systems that are both rigorous and useful. My work
@@ -52,63 +42,42 @@
         Intern, where I built a data pipeline connecting FastAPI, a large language model,
         ClickHouse, and Streamlit to visualize live network topology. Before that I worked
         as an <strong>ML Researcher</strong> at USD, improving anomaly detection for drone
-        power logs using an LSTM autoencoder &mdash; achieving a 75% detection rate, a 30%
+        power logs using an LSTM autoencoder; achieving a 75% detection rate, a 30%
         improvement over the prior model.
       </p>
       <p>
-        Outside of class and work I enjoy building side projects ranging from restaurant
-        simulation games to music streaming servers. I'm always looking for the next
-        interesting problem.
+        Outside of class and work I enjoy keeping up with developments such as agentic AI, 
+        as otehr activities such as traveling and sport.
       </p>
     </section>
 
-    <!--
-      <section> for experience: thematic block with heading.
-      Each job is an <article> — self-contained, redistributable content
-      with its own <header>. Listed in an <ol> because order (chronology) matters.
-    -->
-    <section class="experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading">Experience</h2>
+ 
+    <section>
+      <h2>Experience</h2>
 
-      <ol class="experience-list" reversed>
+      <ol>
 
         <li>
-          <article aria-labelledby="exp-flo">
-            <header>
-              <h3 id="exp-flo">Software Engineering Intern</h3>
-              <p class="experience-meta">
-                <span class="experience-company">Flo Networks</span>
-                &mdash;
-                <time datetime="2024">2024</time>
-              </p>
-            </header>
-            <p>
-              Built an end-to-end system pipeline using FastAPI to query unstructured
-              data from a database, forward it to an LLM for structured payload generation,
-              pipe the results into ClickHouse, and surface graphical network topology
-              data through a Streamlit dashboard.
-            </p>
-          </article>
+          <h3>Software Engineering Intern</h3>
+          <p>Flo Networks <time datetime="2025">2025</time> </p>
+          <p>
+            Built an end-to-end system pipeline using FastAPI to query unstructured
+            data from a database, forward it to an LLM for structured payload generation,
+            pipe the results into ClickHouse, and surface graphical network topology
+            data through a Streamlit dashboard.
+          </p>
         </li>
 
         <li>
-          <article aria-labelledby="exp-research">
-            <header>
-              <h3 id="exp-research">Undergraduate ML Researcher</h3>
-              <p class="experience-meta">
-                <span class="experience-company">USD Undergraduate Research</span>
-                &mdash;
-                <time datetime="2023">2023</time>
-              </p>
-            </header>
-            <p>
-              Translated heuristic-based anomaly detection code into a new framework
-              for seamless integration with SLU's LLM pipeline, then improved the model
-              by building an LSTM autoencoder-based anomaly detection pipeline for drone
-              power logs &mdash; achieving a 75% detection rate, a 30% improvement over
-              prior models.
-            </p>
-          </article>
+          <h3>Undergraduate ML Researcher</h3>
+          <p>USD Undergraduate Research<time datetime="2023">2023</time></p>
+          <p>
+            Translated heuristic-based anomaly detection code into a new framework
+            for seamless integration with SLU's LLM pipeline, then improved the model
+            by building an LSTM autoencoder-based anomaly detection pipeline for drone
+            power logs &mdash; achieving a 75% detection rate, a 30% improvement over
+            prior models.
+          </p>
         </li>
 
       </ol>
@@ -116,9 +85,9 @@
 
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; <time datetime="2025">2025</time> Santiago Guerrero &mdash;
-      <a href="https://github.com/santibanti" rel="noopener noreferrer">GitHub</a>
+  <footer>
+    <p>&copy; <time datetime="2026">2026</time> Santiago Guerrero
+      <a href="https://github.com/santibanti" >GitHub</a>
     </p>
   </footer>
 

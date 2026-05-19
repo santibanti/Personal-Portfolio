@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &mdash; Santiago Guerrero</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <script type="module" src="./scripts/main.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="nav-logo" href="./index.html">SG</a>
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html">About</a></li>
+        <li><a href="./resume.html">Résumé</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./contact.html" aria-current="page">Contact</a></li>
+      </ul>
+      <theme-picker></theme-picker>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!--
+      The page heading and intro sit directly in <main>.
+      The form is the primary content — no section wrapper needed
+      unless we add a second thematic block alongside it.
+    -->
+    <h1 class="page-title">Get in Touch</h1>
+    <p class="page-intro">
+      I'm open to internship opportunities, research collaborations, or just a
+      good conversation about software. Fill out the form below and I'll get
+      back to you as soon as I can.
+    </p>
+
+    <!--
+      ACTION: Replace "YOUR_FORM_ID" with your Formspree endpoint ID.
+      Sign up at https://formspree.io, create a form, and paste the ID here.
+      Format: https://formspree.io/f/YOUR_FORM_ID
+      Works without JavaScript — Formspree handles the server-side redirect.
+
+      novalidate is present so JavaScript can control validation UX,
+      but native HTML5 attributes (required, type="email") remain as
+      the baseline — they activate if JS fails to load.
+    -->
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      novalidate
+    >
+
+      <p class="form-required-note">
+        Fields marked <abbr title="required">*</abbr> are required.
+      </p>
+
+      <p class="form-group">
+        <label for="name">Full Name <abbr title="required">*</abbr></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          autocomplete="name"
+          required
+          aria-required="true"
+          aria-describedby="name-error"
+          placeholder="Jane Smith"
+        />
+        <span class="field-error" aria-live="polite" id="name-error"></span>
+      </p>
+
+      <p class="form-group">
+        <label for="email">Email Address <abbr title="required">*</abbr></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          required
+          aria-required="true"
+          aria-describedby="email-error"
+          placeholder="jane@example.com"
+        />
+        <span class="field-error" aria-live="polite" id="email-error"></span>
+      </p>
+
+      <p class="form-group">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          placeholder="Internship opportunity, collaboration, etc."
+        />
+      </p>
+
+      <p class="form-group">
+        <label for="message">Message <abbr title="required">*</abbr></label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          required
+          aria-required="true"
+          aria-describedby="message-error"
+          placeholder="Tell me what's on your mind..."
+        ></textarea>
+        <span class="field-error" aria-live="polite" id="message-error"></span>
+      </p>
+
+      <!-- Honeypot: hidden from real users, trips up bots -->
+      <p hidden aria-hidden="true">
+        <label for="gotcha">Leave this blank</label>
+        <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+      </p>
+
+      <p class="form-group">
+        <button class="btn" type="submit">Send Message</button>
+      </p>
+
+      <p class="form-status" role="status" aria-live="polite" id="form-status"></p>
+
+    </form>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <time datetime="2025">2025</time> Santiago Guerrero &mdash;
+      <a href="https://github.com/santibanti" rel="noopener noreferrer">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

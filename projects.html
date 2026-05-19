@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <script type="module" src="./scripts/main.js"></script>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a class="nav-logo" href="./index.html">SG</a>
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html">About</a></li>
+        <li><a href="./resume.html">Résumé</a></li>
+        <li><a href="./projects.html" aria-current="page">Projects</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      <theme-picker></theme-picker>
+    </nav>
+  </header>
+
+  <main>
+
+    <h1>Projects</h1>
+    <p>A selection of things I've built: coursework, research, and professional experience.</p>
+
+    <!--
+      The project cards form a genuine thematic group worth sectioning.
+      Each card is an <article>: self-contained, could stand alone.
+    -->
+    <section class="projects-grid" aria-labelledby="projects-grid-heading">
+      <h2 id="projects-grid-heading" class="visually-hidden">Project list</h2>
+
+      <article aria-labelledby="proj-restaurant">
+        <header>
+          <h3 id="proj-restaurant">Restaurant Simulator Game</h3>
+          <ul>
+            <li>Java</li>
+            <li>SOLID Programming</li>
+            <li>Design Patterns</li>
+            <li>Simulation</li>
+          </ul>
+        </header>
+        <p>
+          A restaurant management game that simulates a full week of order processing.
+          Players must meet a revenue target by managing incoming orders efficiently.
+          Built collaboratively with two teammates.
+        </p>
+        <footer>
+          <a
+            href="https://github.com/usd-comp-305/project-04-gregory-santi-rodrigo"
+            aria-label="View Restaurant Simulator on GitHub"
+          >View on GitHub &rarr;</a>
+        </footer>
+      </article>
+
+      <article aria-labelledby="proj-music">
+        <header>
+          <h3 id="proj-music">Music Streaming Server</h3>
+          <ul>
+            <li>C</li>
+            <li>TCP</li>
+            <li>Concurrency</li>
+            <li>Networking</li>
+            <li>Java</li>
+          </ul>
+        </header>
+        <p>
+          A concurrent TCP server that streams MP3 files to multiple simultaneous clients,
+          serves song metadata on request, and lists all available tracks. Demonstrates
+          low-level socket programming and multi-client concurrency.
+        </p>
+        <footer>
+          <a
+            href="https://github.com/santibanti/Streaming-Music-Protocol"
+            aria-label="View Music Streaming Server on GitHub"
+          >View on GitHub &rarr;</a>
+        </footer>
+      </article>
+
+      <article class="project-card" aria-labelledby="proj-birthday">
+        <header>
+          <h3>Birthday Paradox Simulation</h3>
+          <ul aria-label="Technologies used">
+            <li>Python</li>
+            <li>Probability</li>
+            <li>Statistics</li>
+          </ul>
+        </header>
+        <p>
+          A simulation that demonstrates the Birthday Paradox: that the probability
+          of two people sharing a birthday exceeds 50% with just 23 people in a room.
+          Uses repeated random sampling to empirically verify the theoretical result.
+        </p>
+        <footer>
+          <a
+            href="https://github.com/usd-comp-305/project-01-birthday-paradox-santi-alex"
+            aria-label="View Birthday Paradox project on GitHub"
+          >View on GitHub &rarr;</a>
+        </footer>
+      </article>
+
+    </section>
+
+    <!--
+      The widget is a distinct thematic block with its own heading; <section> is used.
+      The <noscript> fallback lives here so it's in the right document context.
+      <currency-card> is a custom element; it sits directly in the section.
+    -->
+    <section class="widget-section" aria-labelledby="widget-heading">
+      <h2 id="widget-heading">Live Currency Rates</h2>
+      <p>
+        Real-time USD &rarr; EUR exchange rates sourced from the
+        <a href="https://www.frankfurter.app/">Frankfurter API</a>
+        (European Central Bank data).
+      </p>
+
+      <noscript>
+        <p class="noscript-notice">
+          JavaScript is required to load live exchange rates.
+          You can check current rates at
+          <a href="https://www.frankfurter.app/">frankfurter.app</a>.
+        </p>
+      </noscript>
+
+      <currency-card></currency-card>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; <time datetime="2026">2026</time> Santiago Guerrero ;
+      <a href="https://github.com/santibanti" rel="noopener noreferrer">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

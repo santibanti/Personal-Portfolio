@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résumé &mdash; Santiago Guerrero</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <script type="module" src="./scripts/main.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="nav-logo" href="./index.html">SG</a>
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html">About</a></li>
+        <li><a href="./resume.html" aria-current="page">Résumé</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      <theme-picker></theme-picker>
+    </nav>
+  </header>
+
+  <main>
+
+      <header>
+        <h1 id="resume-heading">Santiago Guerrero</h1>
+        <p class="resume-tagline">CS &amp; Math &bull; University of San Diego &bull; Full-Stack &bull; ML</p>
+        <a class="btn btn--outline" href="./assets/santiago-guerrero-resume.pdf" download>
+          Download PDF
+        </a>
+      </header>
+
+      <section aria-labelledby="resume-education">
+        <h2 id="resume-education">Education</h2>
+        <!--
+          A single education entry doesn't need a list — it's one item.
+          No wrapper needed; h3 + p sit directly in the section.
+        -->
+        <h3>University of San Diego</h3>
+        <p class="resume-meta">
+          B.S. Computer Science &amp; Mathematics &mdash;
+          <time datetime="2022">2022</time>&ndash;<time datetime="2026">2026</time>
+        </p>
+      </section>
+
+      <section aria-labelledby="resume-experience">
+        <h2 id="resume-experience">Experience</h2>
+
+        <!--
+          Each job is self-contained with its own heading — <article> is correct.
+          Order matters chronologically, so <ol> wraps them.
+        -->
+        <ol class="resume-list" reversed>
+
+          <li>
+            <article aria-labelledby="res-exp-flo">
+              <header>
+                <h3 id="res-exp-flo">Software Engineering Intern &mdash; Flo Networks</h3>
+                <p class="resume-meta"><time datetime="2024">2024</time></p>
+              </header>
+              <ul>
+                <li>
+                  Built an end-to-end data pipeline using <strong>FastAPI</strong> to query
+                  unstructured data from a database and forward it to an LLM for structured
+                  payload generation.
+                </li>
+                <li>
+                  Piped structured data into <strong>ClickHouse</strong> and surfaced live
+                  network topology visualizations via a <strong>Streamlit</strong> dashboard.
+                </li>
+              </ul>
+            </article>
+          </li>
+
+          <li>
+            <article aria-labelledby="res-exp-research">
+              <header>
+                <h3 id="res-exp-research">Undergraduate ML Researcher &mdash; USD</h3>
+                <p class="resume-meta"><time datetime="2023">2023</time></p>
+              </header>
+              <ul>
+                <li>
+                  Translated heuristic-based anomaly detection code into a new framework
+                  for seamless integration with SLU's LLM pipeline.
+                </li>
+                <li>
+                  Designed and trained an <strong>LSTM autoencoder</strong> for anomaly
+                  detection on drone power logs, achieving a <strong>75% detection rate</strong>
+                  &mdash; a 30% improvement over prior models.
+                </li>
+              </ul>
+            </article>
+          </li>
+
+        </ol>
+      </section>
+
+      <section aria-labelledby="resume-projects">
+        <h2 id="resume-projects">Selected Projects</h2>
+
+        <ol class="resume-list" reversed>
+
+          <li>
+            <article aria-labelledby="res-proj-restaurant">
+              <header>
+                <h3 id="res-proj-restaurant">Restaurant Simulator Game</h3>
+              </header>
+              <ul>
+                <li>
+                  Restaurant management simulation that models a week of order processing
+                  with a revenue target; built collaboratively with two teammates.
+                </li>
+              </ul>
+            </article>
+          </li>
+
+          <li>
+            <article aria-labelledby="res-proj-music">
+              <header>
+                <h3 id="res-proj-music">Concurrent Music Streaming Server</h3>
+              </header>
+              <ul>
+                <li>
+                  TCP server capable of concurrently streaming MP3 files to multiple clients,
+                  serving song metadata, and listing available tracks.
+                </li>
+              </ul>
+            </article>
+          </li>
+
+          <li>
+            <article aria-labelledby="res-proj-birthday">
+              <header>
+                <h3 id="res-proj-birthday">Birthday Paradox Simulation</h3>
+              </header>
+              <ul>
+                <li>
+                  Probabilistic simulation demonstrating that the likelihood of a shared
+                  birthday exceeds 50% with only 23 people, via repeated random sampling.
+                </li>
+              </ul>
+            </article>
+          </li>
+
+        </ol>
+      </section>
+
+      <section aria-labelledby="resume-skills">
+        <h2 id="resume-skills">Skills</h2>
+
+        <!--
+          <dl> is the correct element for name-value pairs like skill categories.
+          No wrapper needed around each pair — <dt>/<dd> are the structure.
+        -->
+        <dl class="skills-grid">
+          <dt>Languages</dt>
+          <dd>Python, JavaScript, C, Java, SQL, HTML, CSS</dd>
+
+          <dt>Frameworks &amp; Tools</dt>
+          <dd>FastAPI, Streamlit, NumPy, PyTorch, Git</dd>
+
+          <dt>Databases</dt>
+          <dd>ClickHouse, PostgreSQL, SQLite</dd>
+
+          <dt>Concepts</dt>
+          <dd>Full-Stack Development, Machine Learning, Systems Programming, Network Protocols</dd>
+        </dl>
+
+      </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <time datetime="2025">2025</time> Santiago Guerrero &mdash;
+      <a href="https://github.com/santibanti" rel="noopener noreferrer">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

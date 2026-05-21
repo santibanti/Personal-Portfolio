@@ -56,28 +56,26 @@ class CurrencyCard extends HTMLElement {
   // ── Render helpers ───────────────────────────────────────
 
   _render(data) {
-    // data.rates is an object like { "EUR": 0.9234 }
     const rate = data.rates?.EUR;
-
+  
     if (rate === undefined) {
       this._renderError();
       return;
     }
-
-    // Format the rate to 4 decimal places
+  
     this.rateEl.textContent = rate.toFixed(4);
     this.rateEl.removeAttribute("data-loading");
-
-    this.baseEl.textContent  = data.base  ?? "USD";
+  
+    this.baseEl.textContent  = data.base ?? "USD";
     this.quoteEl.textContent = "EUR";
-    this.dateEl.textContent = data.meta?.last_updated_at
-        ? new Date(data.meta.last_updated_at).toLocaleDateString("en-US", {
+    this.dateEl.textContent  = data.date
+      ? new Date(data.date).toLocaleDateString("en-US", {
           year:  "numeric",
           month: "long",
           day:   "numeric"
         })
-      : "Unknown";
-
+      : "Latest available";
+  
     this.statusEl.textContent = "Rate loaded successfully.";
     this.statusEl.removeAttribute("data-error");
   }

@@ -5,7 +5,7 @@
 import { template } from "./currency-card-template.js";
 import { styles }   from "./currency-card-styles.js";
 
-const ENDPOINT = "https://api.frankfurter.app/latest?from=USD&to=EUR";
+const ENDPOINT = "https://api.frankfurter.dev/latest?from=USD&to=EUR";
 
 class CurrencyCard extends HTMLElement {
 

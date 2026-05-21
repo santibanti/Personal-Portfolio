@@ -1,4 +1,3 @@
-// components/currency-card/currency-card-template.js
 // Returns the initial HTML scaffold for the currency-card component.
 // Data slots are filled in by currency-card.js after the fetch resolves.
 

@@ -1,4 +1,3 @@
-// components/currency-card/currency-card.js
 // Custom element that fetches the live USD -> EUR exchange rate
 // from the Frankfurter API (https://www.frankfurter.app/) and
 // renders it with a loading state and error handling.

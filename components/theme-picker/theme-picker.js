@@ -1,4 +1,3 @@
-// components/theme-picker/theme-picker.js
 // Custom element that renders a theme switcher dropdown.
 // Switches themes by setting data-theme on <html>.
 // Persists the user's choice in localStorage.

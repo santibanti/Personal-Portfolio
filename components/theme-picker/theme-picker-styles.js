@@ -1,4 +1,3 @@
-// components/theme-picker/theme-picker-styles.js
 // Scoped styles injected into the theme-picker component.
 // Uses the same custom properties defined in style.css so it
 // automatically respects whichever theme is currently active.

@@ -567,28 +567,28 @@
      10. CONTACT PAGE (contact.html)
      ============================================================ */
   
-  .contact-form {
+  form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    max-width: 44rem;
+    gap: 0;
+    max-width: 25rem;
   }
   
-  .contact-form > p {
+  form > p {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0rem;
     max-width: unset;
   }
   
-  .contact-form label {
+  form label {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text);
   }
   
-  .contact-form input,
-  .contact-form textarea {
+  form input,
+  form textarea {
     width: 100%;
     padding: 0.6rem 0.85rem;
     background-color: var(--surface);
@@ -600,19 +600,19 @@
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   
-  .contact-form input:focus,
-  .contact-form textarea:focus {
+  form input:focus,
+  form textarea:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
   }
   
-  .contact-form input:invalid:not(:placeholder-shown),
-  .contact-form textarea:invalid:not(:placeholder-shown) {
+  form input:invalid:not(:placeholder-shown),
+  form textarea:invalid:not(:placeholder-shown) {
     border-color: #dc2626;
   }
   
-  .contact-form textarea {
+  form textarea {
     resize: vertical;
     min-block-size: 8rem;
   }

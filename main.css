@@ -250,7 +250,6 @@
     color: var(--text);
     text-decoration: none;
     letter-spacing: -0.03em;
-    margin-inline-end: auto;
   }
   
   header > nav > a:first-child:hover {
@@ -676,6 +675,9 @@
       border-color 0.25s ease !important;
   }
   
+  theme-picker {
+    margin-inline-start: auto;
+  }
   
   /* 
      13. REDUCED MOTION

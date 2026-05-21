@@ -5,7 +5,7 @@
 import { template } from "./currency-card-template.js";
 import { styles }   from "./currency-card-styles.js";
 
-const ENDPOINT = "https://api.frankfurter.dev/v2/rates?base=USD&quotes=EUR";
+const ENDPOINT = "https://api.frankfurter.dev/v2/rate/USD/EUR";
 
 class CurrencyCard extends HTMLElement {
 
@@ -56,7 +56,7 @@ class CurrencyCard extends HTMLElement {
   // ── Render helpers ───────────────────────────────────────
 
   _render(data) {
-    const rate = data.rates?.EUR;
+    const rate = data.rate;
   
     if (rate === undefined) {
       this._renderError();
@@ -66,8 +66,8 @@ class CurrencyCard extends HTMLElement {
     this.rateEl.textContent = rate.toFixed(4);
     this.rateEl.removeAttribute("data-loading");
   
-    this.baseEl.textContent  = data.base ?? "USD";
-    this.quoteEl.textContent = "EUR";
+    this.baseEl.textContent  = data.base  ?? "USD";
+    this.quoteEl.textContent = data.quote ?? "EUR";
     this.dateEl.textContent  = data.date
       ? new Date(data.date).toLocaleDateString("en-US", {
           year:  "numeric",

@@ -2,7 +2,7 @@
 
 A personal website built with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies. The site serves as a professional landing page and a demonstration of modern web platform fundamentals.
 
-**Live site:** [your-deployed-url.pages.dev](https://your-deployed-url.pages.dev)
+**Live site:** [https://santibanti.github.io/Personal-Portfolio/]
 
 ---
 

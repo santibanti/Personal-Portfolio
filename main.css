@@ -6,7 +6,7 @@
    4. Layout primitives
    5. Header & nav
    6. Hero
-   7. About & Experience (index)
+   7. Index page — about & experience
    8. Résumé page
    9. Projects page
    10. Contact page
@@ -166,7 +166,7 @@
   strong { font-weight: 700; }
   time   { font-variant-numeric: tabular-nums; }
   
-  /* Only apply list padding inside main content, never in nav */
+  /* Scoped to main so nav lists are never affected */
   main ul, main ol {
     padding-inline-start: 1.5rem;
   }
@@ -246,7 +246,7 @@
     color: var(--accent);
   }
   
-  /* Nav link list — sits in the middle, grows to fill space */
+  /* Nav link list */
   header > nav > ul {
     list-style: none;
     padding: 0;
@@ -282,7 +282,6 @@
     font-weight: 600;
   }
   
-  /* Theme picker pushed to the far right */
   theme-picker {
     flex-shrink: 0;
     margin-inline-start: auto;
@@ -291,29 +290,27 @@
   
   /* ============================================================
      6. HERO (index.html)
-     The hero is the first section in main on the home page.
-     We target it by structure since the class was removed.
+     The h1, subtitle p, and CTA link sit directly in <main>
+     before the first <section> — we target them by position.
      ============================================================ */
   
-  main > section:first-child {
-    padding-block: 3rem 2rem;
-    border-block-end: 1px solid var(--border);
-    gap: 1rem;
-  }
-  
-  main > section:first-child > h1 {
+  /* The h1 directly in main is the hero heading */
+  main > h1 {
     font-size: clamp(2.8rem, 7vw, 5rem);
     letter-spacing: -0.04em;
   }
   
-  main > section:first-child > p {
+  /* The p directly after the h1 is the subtitle */
+  main > h1 + p {
     font-size: clamp(1.05rem, 2vw, 1.25rem);
     color: var(--text-muted);
     max-width: 52ch;
   }
   
-  .btn {
+  /* The <a> directly in main is the CTA button */
+  main > a {
     display: inline-block;
+    align-self: flex-start;
     margin-block-start: 0.5rem;
     padding: 0.65rem 1.4rem;
     background-color: var(--accent);
@@ -328,32 +325,19 @@
     transition: background-color 0.15s ease, transform 0.1s ease;
   }
   
-  .btn:hover, .btn:focus-visible {
+  main > a:hover,
+  main > a:focus-visible {
     background-color: var(--accent-hover);
     color: var(--accent-text);
     transform: translateY(-1px);
   }
   
-  .btn--outline {
-    background-color: transparent;
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-  
-  .btn--outline:hover, .btn--outline:focus-visible {
-    background-color: var(--accent);
-    color: var(--accent-text);
-  }
-  
   
   /* ============================================================
-     7. ABOUT & EXPERIENCE (index.html)
+     7. INDEX PAGE — ABOUT & EXPERIENCE
      ============================================================ */
   
-  /* Experience list — override main ul/ol padding since 
-     these are styled as cards, not indented bullets */
-  main > section > ol.experience-list,
-  main > section > ol:not([class]) {
+  main > section > ol {
     list-style: none;
     padding: 0;
     display: flex;
@@ -361,18 +345,17 @@
     gap: 2rem;
   }
   
-  main > section > ol:not([class]) > li,
-  main > section > ol.experience-list > li {
+  main > section > ol > li {
     padding-block-start: 2rem;
     border-block-start: 1px solid var(--border);
     padding-inline-start: 0;
   }
   
-  main > section > ol:not([class]) > li > h3 {
+  main > section > ol > li > h3 {
     margin-block-end: 0.25rem;
   }
   
-  main > section > ol:not([class]) > li > p {
+  main > section > ol > li > p {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-block-end: 0.5rem;
@@ -381,8 +364,16 @@
   
   /* ============================================================
      8. RÉSUMÉ PAGE (resume.html)
+     resume.html structure:
+       main
+         header        ← identity block
+         section       ← education
+         section       ← experience (ul)
+         section       ← projects (ul)
+         footer        ← skills (dl)
      ============================================================ */
   
+  /* Identity block */
   main > header {
     padding-block-end: 2rem;
     border-block-end: 1px solid var(--border);
@@ -396,9 +387,32 @@
     font-size: 1.05rem;
   }
   
-  /* Resume entry lists — explicitly classed to avoid 
-     colliding with experience lists on index */
-  .resume-list {
+  /* Download link styled as outline button */
+  main > header > a {
+    display: inline-block;
+    margin-block-start: 0.25rem;
+    padding: 0.55rem 1.2rem;
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: "Georgia", serif;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    align-self: flex-start;
+  }
+  
+  main > header > a:hover,
+  main > header > a:focus-visible {
+    background-color: var(--accent);
+    color: var(--accent-text);
+  }
+  
+  /* Experience and projects entry lists */
+  main > section > ul {
     list-style: none;
     padding: 0;
     display: flex;
@@ -406,40 +420,41 @@
     gap: 1.75rem;
   }
   
-  .resume-list > li {
+  main > section > ul > li {
     padding-block-start: 1.75rem;
     border-block-start: 1px solid var(--border);
   }
   
-  .resume-list > li > h3 {
+  main > section > ul > li > h3 {
     margin-block-end: 0.2rem;
   }
   
-  .resume-list > li > p {
+  main > section > ul > li > p {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-block-end: 0.5rem;
   }
   
-  /* Bullet points inside resume entries */
-  .resume-list > li > ul {
-    list-style: disc;
-    padding-inline-start: 1.5rem;
-    margin-block-start: 0.5rem;
-    color: var(--text);
+  /* Skills footer — resume.html uses <footer> for the skills block */
+  main > footer {
+    padding-block-start: 2rem;
+    border-block-start: 1px solid var(--border);
   }
   
-  /* Skills dl */
-  .skills-grid {
+  main > footer > h2 {
+    margin-block-end: 1rem;
+  }
+  
+  /* Skills definition list */
+  main > footer > dl {
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 0.5rem 2rem;
     align-items: baseline;
   }
   
-  .skills-grid > dt {
+  main > footer > dl > dt {
     white-space: nowrap;
-    margin-block-start: 0;
   }
   
   
@@ -447,25 +462,15 @@
      9. PROJECTS PAGE (projects.html)
      ============================================================ */
   
-  .projects-grid {
+  /* Project cards grid — only sections that contain articles get grid layout.
+     :has(> article) ensures this never fires on about/resume sections */
+  main > section:has(> article) {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
     gap: 1.5rem;
   }
   
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-  
-  .projects-grid > article {
+  main > section:has(> article) > article {
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -477,23 +482,22 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   
-  .projects-grid > article:hover {
+  main > section:has(> article) > article:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow), 0 8px 24px rgb(0 0 0 / 0.08);
   }
   
-  .projects-grid > article > header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  /* h2 must span all columns so cards start on a fresh row */
+  main > section:has(> article) > h2 {
+    grid-column: 1 / -1;
   }
   
-  .projects-grid > article > header > h3 {
+  main > section:has(> article) > article > h3 {
     margin: 0;
   }
   
-  /* Tag list inside project cards */
-  .projects-grid > article > header > ul {
+  /* Tech tag list */
+  main > section:has(> article) > article > ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -502,7 +506,7 @@
     gap: 0.4rem;
   }
   
-  .projects-grid > article > header > ul > li {
+  main > section:has(> article) > article > ul > li {
     margin: 0;
     padding: 0.2rem 0.6rem;
     background-color: var(--tag-bg);
@@ -513,53 +517,53 @@
     font-family: "Courier New", monospace;
   }
   
-  .projects-grid > article > p {
+  main > section:has(> article) > article > p {
     flex: 1;
     color: var(--text-muted);
     font-size: 0.95rem;
     max-width: unset;
   }
   
-  .projects-grid > article > footer {
-    margin-block-start: auto;
+  main > section:has(> article) > article > a {
     padding-block-start: 0.75rem;
     border-block-start: 1px solid var(--border);
-  }
-  
-  .projects-grid > article > footer > a {
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
+    margin-block-start: auto;
   }
   
-  .projects-grid > article > footer > a:hover {
+  main > section:has(> article) > article > a:hover {
     text-decoration: underline;
   }
   
-  .widget-section {
-    padding: clamp(1.5rem, 4vw, 2.5rem);
+  /* Currency widget — only sections containing currency-card */
+  main > section:has(> currency-card) {
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
     box-shadow: var(--shadow);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
   }
   
-  .widget-section > h2 {
+  main > section:has(> currency-card) > h2 {
     margin-block-end: 0.5rem;
   }
   
-  .widget-section > p {
+  main > section:has(> currency-card) > p {
     color: var(--text-muted);
     margin-block-end: 1.5rem;
   }
   
-  .noscript-notice {
-    padding: 1rem;
-    background-color: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
+  /* Make the card stretch full width inside the section */
+  main > section:has(> currency-card) > currency-card {
+    display: block;
+    max-width: unset;
+  }
+  
+  /* Override the card's internal max-width so it fills the space */
+  main > section:has(> currency-card) currency-card article {
+    max-width: unset;
   }
   
   
@@ -570,15 +574,20 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    max-width: 25rem;
+    gap: 1.25rem;
+    max-width: 44rem;
   }
   
   form > p {
     display: flex;
     flex-direction: column;
-    gap: 0rem;
+    gap: 0.4rem;
     max-width: unset;
+  }
+  
+  /* Honeypot must stay hidden regardless of flex rules */
+  form > p[hidden] {
+    display: none;
   }
   
   form label {
@@ -617,16 +626,36 @@
     min-block-size: 8rem;
   }
   
-  .field-error {
-    font-size: 0.85rem;
-    color: #dc2626;
-    min-block-size: 1.2em;
+  form button[type="submit"] {
+    align-self: flex-start;
+    padding: 0.65rem 1.4rem;
+    background-color: var(--accent);
+    color: var(--accent-text);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+  }
+  
+  form button[type="submit"]:hover,
+  form button[type="submit"]:focus-visible {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+  
+  form button[type="submit"]:focus-visible {
+    outline: 0.2rem solid var(--accent);
+    outline-offset: 0.2rem;
   }
   
   .form-status {
     font-size: 0.9rem;
     color: var(--text-muted);
     min-block-size: 1.4em;
+    max-width: unset;
   }
   
   
@@ -666,10 +695,6 @@
       background-color 0.25s ease,
       color 0.25s ease,
       border-color 0.25s ease !important;
-  }
-
-  [hidden] {
-    display: none !important;
   }
   
   

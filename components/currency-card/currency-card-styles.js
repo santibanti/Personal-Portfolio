@@ -5,7 +5,6 @@ export const styles = `
   <style>
     currency-card {
       display: block;
-      max-width: 28rem;
     }
 
     currency-card article {
